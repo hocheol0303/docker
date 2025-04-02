@@ -2,7 +2,10 @@
 FROM tensorflow/tensorflow:2.15.0-gpu
 
 # 패키지 설치
-RUN pip install matplotlib pandas scikit-learn opencv-python notebook ipykernel
+# libgl1은 cv2에 필요한 라이브러리
+RUN pip install matplotlib pandas scikit-learn opencv-python notebook ipykernel mediapipe tqdm nvitop && \
+	apt update && apt install -y libgl1 && \
+	apt clean && rm -rf /var/lib/apt/lists/*
 
 # 작업 디렉토리 설정
 WORKDIR /tf
