@@ -10,7 +10,7 @@ RUN apt update && apt install -y libgl1 git tzdata && \
 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
 	apt clean && rm -rf /var/lib/apt/lists/* && \
 	pip install matplotlib pandas scikit-learn opencv-python && \
-	pip install notebook ipykernel mediapipe nvitop wandb
+	pip install notebook ipykernel mediapipe nvitop wandb tqdm seaborn
 
 # 작업 디렉토리 설정
 WORKDIR /tf
